@@ -11,6 +11,7 @@ const Hero = () => {
           width={200}
           layout="responsive"
           alt="home cinema"
+          priority
         />
         <h1 className="text-2xl text-gray-700 uppercase font-bold">
           Welcome to WatchMe
