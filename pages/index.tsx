@@ -1,14 +1,14 @@
 import axios from "axios";
 import type { NextPage } from "next";
 import Hero from "../components/Hero";
+import PopularMovies from "../components/PopularMovies";
 import { server } from "../config";
 
 const Home: NextPage = ({ movies }: any) => {
-  console.log("movies : ", movies);
-
   return (
-    <div>
+    <div className="bg-gray-700">
       <Hero />
+      <PopularMovies movies={movies.results} />
     </div>
   );
 };
