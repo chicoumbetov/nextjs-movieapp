@@ -3,8 +3,6 @@ import Link from "next/link";
 import { MovieType } from "./interfaces";
 
 const MovieCard = ({ movie }: { movie: MovieType }) => {
-  console.log("movie", movie);
-
   return (
     <Link href={`/movie/${movie.id}`}>
       <div className="bg-white shadow-sm rounded-md cursor-pointer">
