@@ -1,11 +1,36 @@
 import axios from "axios";
+import Image from "next/image";
 import { MovieType } from "../../../components/interfaces";
+import Meta from "../../../components/Meta";
 import { server } from "../../../config";
 
 const Movie = ({ movie }: { movie: MovieType }) => {
-  console.log("detail : ", movie);
-
-  return <div>{movie.title}</div>;
+  return (
+    <div className="container max-w-4xl mx-auto pt-6">
+      <Meta title={movie.title} />
+      <div className="px-3">
+        <Image
+          src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+          width={1000}
+          height={600}
+          className="rounded-md"
+          alt="movie image"
+        />
+      </div>
+      <h1 className="font-bold text-xl my-2">{movie.title}</h1>
+      <p className="text-gray-600 text-sm mt-4">{movie.overview}</p>
+      <p className="mt-5 text-gray-600 text-sm">
+        Genres:{" "}
+        <span className="font-bold">
+          {movie.genres.map((genre) => genre.name).join(", ")}
+        </span>
+      </p>
+      <p className="text-gray-600 text-sm">
+        Release Date:{" "}
+        <span className="font-bold">{movie.release_date.toString()}</span>
+      </p>
+    </div>
+  );
 };
 
 export async function getStaticProps(context: any) {
